@@ -25,10 +25,12 @@ export default new Router({
     {
       path: "/help",
       name: "help",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("./views/Help.vue")
+    },
+    {
+      path: "*",
+      name: "e404",
+      component: () => import("./views/E404.vue")
     }
   ]
 });
