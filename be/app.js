@@ -4,6 +4,8 @@ var history = require("connect-history-api-fallback");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const cors = require("cors");
+// 개발모드에서 뷰포트 8080, 노드포트 3000 포트가 틀려서 보안상 통신이 안되는걸 되게해줌
 
 var app = express();
 
@@ -16,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(history());
+app.use(cors());
 app.use("/api", require("./routes/api"));
 app.use(express.static(path.join(__dirname, "../", "fe", "dist")));
 
